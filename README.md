@@ -31,11 +31,11 @@ python3 rip.py
 This section specifies what kind of input is expected from program's API.
 
 #### Add Router / Show Routing Table
-<router_name> ::= "R" <digit>
-<digit> ::= [0-9]
+router_name ::= "R" digit | digit
+digit ::= [0-9]
 
 #### Add/Delete Link
-<link> ::= <router_name> "-" <router_name>
+link ::= router_name "-" router_name
 
 ## License
 
