@@ -137,7 +137,7 @@ class Router:
 
     def listen(self):
         (data, addr) = (self.input_socket).recvfrom(512)
-        # print("Received", data, "from ", addr)
+        
         # We use neighbor port to imitate neighbor address
         neighbor_output_port = addr[1]
 
@@ -201,8 +201,6 @@ class Router:
             updated_metric = min(metric + self.DEFAULT_COST, self.INFINITY_METRIC)
 
             neighbor_addr = self.port_to_addr(neighbor_output_port) # Turn neighbor port to mock IP address we use in Routing Table
-
-            # print("Router ", self.name, " received ", "entry: ", destination_ip, " ", metric, " ", " via ", neighbor_addr)
 
             (self.table).check_entry(destination_ip, updated_metric, neighbor_addr, self)
 
